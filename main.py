@@ -19,9 +19,8 @@ s.onkeypress(p.move, "Up")
 game_is_on = True
 while game_is_on:
     s.update()
-    time.sleep(0.5)
-    car.go_left()
-    # if car.xcor() < -320:
-    #     game_is_on = False
+    car.generate_more_cars()
+    car.move()
+    time.sleep(0.1)
 
-
+s.exitonclick()

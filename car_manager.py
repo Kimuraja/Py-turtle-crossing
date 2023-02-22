@@ -4,18 +4,30 @@ from turtle import Turtle
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
 STARTING_MOVE_DISTANCE = 5
 MOVE_INCREMENT = 10
-Y = random.randint(0, 260)
+X = 280
+
+
 
 class CarManager(Turtle):
     def __init__(self):
         super().__init__()
-        self.pu()
-        self.shape("square")
-        self.color(random.choice(COLORS))
-        self.shapesize(stretch_wid=1, stretch_len=2)
-        self.goto(300, Y)
-        self.left(180)
+        self.segment = []
+        self.generate_more_cars()
 
-    def go_left(self):
+    def generate_more_cars(self):
+        for _ in COLORS:
+            self.new_car()
 
-        self.fd(10)
+    def new_car(self):
+        new = Turtle()
+        new.shape("square")
+        new.pu()
+        new.shapesize(stretch_wid=1, stretch_len=2)
+        new.color(random.choice(COLORS))
+        new.goto(X, random.randint(-260, 260))
+        self.segment.append(new)
+
+    def move(self):
+        for seg_num in range(0, len(self.segment)):
+            self.segment[seg_num].goto(X, random.randint(-260, 260))
+        self.segment[0].forward(MOVE_INCREMENT)
