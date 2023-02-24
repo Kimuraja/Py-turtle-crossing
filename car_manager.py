@@ -3,27 +3,29 @@ from turtle import Turtle
 import time
 
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
-STARTING_MOVE_DISTANCE = 5
+
 MOVE_INCREMENT = 10
 
-
-# TODO, Slow down cars !
 
 class CarManager(Turtle):
     def __init__(self):
         super().__init__()
-        self.segment = []
+        self.shape("square")
+        self.STARTING_MOVE_DISTANCE = 5
+        self.pu()
+        self.shapesize(stretch_wid=1, stretch_len=2)
+        self.color(random.choice(COLORS))
+        self.left(180)
+        self.goto(x=280, y=random.randint(-280, 280))
 
-    def new_car(self):
-        new = Turtle("square")
-        new.left(180)
-        new.pu()
-        new.shapesize(stretch_wid=1, stretch_len=2)
-        new.color(random.choice(COLORS))
-        new.goto(320, random.randint(-250, 250))
-        # for _ in range(len(COLORS)):
-        self.segment.append(new)
+    def generate_car(self):
+        i = Turtle("square")
+        i.STARTING_MOVE_DISTANCE = 5
+        i.pu()
+        i.shapesize(stretch_wid=1, stretch_len=2)
+        i.color(random.choice(COLORS))
+        i.left(180)
+        i.goto(x=280, y=random.randint(-280, 280))
 
     def move(self):
-        for i in range(0, len(self.segment), 5):
-            self.segment[i].fd(STARTING_MOVE_DISTANCE)
+        self.fd(self.STARTING_MOVE_DISTANCE)

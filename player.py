@@ -8,9 +8,8 @@ FINISH_LINE_Y = 280
 class Player(Turtle):
     def __init__(self):
         super().__init__()
-        self.move()
         self.shape("turtle")
-        self.clear()
+        self.pu()
 
     def starting_position(self):
         self.pu()
@@ -19,3 +18,7 @@ class Player(Turtle):
 
     def move(self):
         self.fd(MOVE_DISTANCE)
+
+    def reset_game(self):
+        self.goto(STARTING_POSITION)
+
