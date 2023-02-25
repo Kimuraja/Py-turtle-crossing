@@ -4,15 +4,13 @@ from player import Player
 from car_manager import CarManager
 from scoreboard import Scoreboard
 
-
 s = Screen()
 s.setup(width=600, height=600)
 s.tracer(0)
 s.bgcolor("#edf2f4")
 
-car = CarManager()
-
 p = Player()
+car = CarManager()
 p.starting_position()
 
 s.listen()
@@ -33,8 +31,8 @@ while game_is_on:
         p.reset_game()
         score.increase_score()
 
-    for car in car.all_cars:
-        if car.distance(p) < 20:
+    for i in car.all_cars:
+        if i.distance(p) < 20:
             score.game_over()
             game_is_on = False
 
