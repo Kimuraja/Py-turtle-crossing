@@ -30,6 +30,7 @@ while game_is_on:
     if p.ycor() == 290:
         p.reset_game()
         score.increase_score()
+        car.STARTING_MOVE_DISTANCE += 10
 
     for i in car.all_cars:
         if i.distance(p) < 20:
