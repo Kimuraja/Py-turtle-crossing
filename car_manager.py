@@ -1,7 +1,7 @@
 import random
 from turtle import Turtle
 
-COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
+COLORS = ["#005f73", "#ee9b00", "#ae2012", "#0a9396", "#e9d8a6", "#ca6702"]
 
 
 class CarManager:
@@ -13,6 +13,7 @@ class CarManager:
         rand_chance = random.randint(1, 2)
         if rand_chance == 1:
             i = Turtle("square")
+            i.color("#001219")
             i.shapesize(stretch_wid=1, stretch_len=2)
             i.pu()
             i.color(random.choice(COLORS))
